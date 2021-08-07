@@ -52,7 +52,7 @@ object Repro extends IOApp with Http4sDsl[IO] {
           ).parTupled
         }
         .take(limit)
-        .mergeHaltBoth(fs2.Stream.eval(IO.readLine))
+        // .mergeHaltBoth(fs2.Stream.eval(IO.readLine))
         .compile
         .drain
         .as(ExitCode.Success)
